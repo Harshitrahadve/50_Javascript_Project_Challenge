@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-family: "Poppins", sans-serif;
+      }
+
+      h1 {
+        font-size: 4rem;
+        text-align: center;
+      }
+
+      .counter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        font-size: 3rem;
+        height: 150px;
+      }
+
+      .btn {
+        font-size: 2rem;
+        font-weight: 800;
+        width: 60px;
+        height: 60px;
+        background: cornflowerblue;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .reset {
+        margin: auto;
+        text-align: center;
+        padding: 20px;
+        width: 150px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: cornflowerblue;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .num-changeBy {
+        margin: 30px auto;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      .num-changeBy input {
+        width: 100px;
+        height: 25px;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Counter</h1>
+
+    <div class="counter">
+      <button class="btn" id="prevCount">&minus;</button>
+      <h2 id="output">0</h2>
+      <button class="btn" id="nextCount" onclick="()=>{incriment();}">&plus;</button>
+    </div>
+    <div class="num-changeBy">
+      <label for="changeBy">Incriment/Decriment by:</label>
+      <input type="number" name="changeBy" id="changeBy" min="1" max="10" value="1" />
+    </div>
+
+    <button class="reset">Reset</button>
+
+    <script>
+      const incriment = document.querySelector("#prevCount");
+      const decriment = document.querySelector("#nextCount");
+      const value = document.querySelector("#output");
+      const reset = document.querySelector(".reset");
+
+
+      incriment.addEventListener('click', () => {
+        value.innerHTML =+ value.textContent - changeBy.valueAsNumber;
+      })
+
+
+      decriment.addEventListener('click', () => {
+        value.innerHTML =+ value.textContent + changeBy.valueAsNumber;
+      })
+
+      reset.addEventListener("click", () => {
+        value.innerText = 0;
+      })
+
+
+
+
+    </script>
+  </body>
+</html>
