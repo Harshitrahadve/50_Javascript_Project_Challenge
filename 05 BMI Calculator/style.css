@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(61, 68, 85);
+}
+
+h2{
+    text-align: center;
+    margin: 10px 0;
+    color: rgb(47, 48, 49);
+    font-size: 2.5rem;
+    font-weight: 900;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.8rem;
+    color: rgb(47, 48, 49);
+    margin: 100px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn{
+    width: 300px;
+    height: 40px;
+    border: 2px solid rgb(47, 48, 49);
+    outline: none;  
+    background-color: rgb(47, 48, 49);
+    color: aliceblue;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 7px;
+}
+
+#bmiForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    gap: 1rem;
+    font-size: 1.8rem;
+    color: rgb(47, 48, 49);
+    margin: 100px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+input{
+    width: 300px;
+    height: 30px;
+    border: 2px solid rgb(47, 48, 49);
+    outline: none;
+    padding: 6px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+label{
+    font-size: 1.2rem;
+    color: rgb(47, 48, 49);
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.result{
+    color: rgb(47, 48, 49);
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.8rem;
+}
