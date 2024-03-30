@@ -76,11 +76,16 @@ label{
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 1rem;
     font-size: 1.8rem;
+}
+
+#BMIvalue{
+    color: aliceblue;
+    font-weight: bolder;
 }
 
 .info{
