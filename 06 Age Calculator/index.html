@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Calculator</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: linear-gradient(
+          to right bottom,
+          #a53ed4,
+          #7a61e3,
+          #4d78e6,
+          #2987de,
+          #2f92d0
+        );
+        padding: 2rem;
+        gap: 1rem;
+        flex-direction: column;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 2rem;
+      }
+
+      h2 span {
+        color: #a53ed4;
+      }
+
+      main {
+        width: 600px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.18);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(6.4px);
+        -webkit-backdrop-filter: blur(6.4px);
+        border: 1px solid rgba(255, 255, 255, 0.29);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+      }
+
+      form {
+        display: flex;
+        gap: 1.5rem;
+        padding: 10px;
+        overflow: hidden;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #date {
+        width: 90%;
+        height: 40px;
+        padding: 15px;
+        font-size: 1.2rem;
+        font-weight: bolder;
+        border-radius: 10px;
+        border: 0;
+        outline: none;
+        margin: 0 10%;
+        cursor: pointer;
+      }
+
+      #btn {
+        width: 90%;
+        /* margin: 0 10%; */
+        font-size: 1.3rem;
+        border: 0;
+        border-radius: 12px;
+        height: 38px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      p {
+        font-weight: 700;
+      }
+
+      @media (max-width: 480px) {
+        main {
+          width: 300px;
+          height: 150px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h2>Age <span>Calculator</span></h2>
+      <form class="input-box">
+        <input type="date" name="date" id="date" />
+        <input type="submit" id="btn" value="Calculate" />
+      </form>
+    </main>
+    <!-- <h2 class="result">You are 17 years, 05 Months and 12 Days old</h2> -->
+    <h2 class="result"></h2>
+
+    <p>Created by Yash Rahadve</p>
+
+    <script>
+      const inputDate = document.getElementById("date");
+      const btn = document.getElementById("btn");
+      inputDate.max = new Date().toISOString().split("T")[0];
+
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        calculateAge();
+      });
+
+      function calculateAge(e) {
+        const result = document.querySelector(".result");
+
+        let birthDate = new Date(inputDate.value);
+
+        // user DOB Date, month and year
+        let date1 = birthDate.getDate();
+        let month1 = birthDate.getMonth() + 1;
+        let year1 = birthDate.getFullYear();
+
+        let todaysDate = new Date();
+
+        // Today Date, Month and year
+        let date2 = todaysDate.getDate();
+        let month2 = todaysDate.getMonth() + 1;
+        let year2 = todaysDate.getFullYear();
+
+        let date3, month3, year3;
+
+        // Substracting current year to user DOB year
+        year3 = year2 - year1;
+
+        // Substracting current month to user DOB month
+        if (month2 >= month1) {
+          month3 = month2 - month1;
+        } else {
+          year3--;
+          month3 = 12 + month2 - month1;
+        }
+
+        // Substracting current date to user DOB date
+        if (date2 >= date1) {
+          date3 = date2 - date1;
+        } else {
+          month3--;
+          date3 = getDayInMonth(year1, month1) + month2 - month1;
+        }
+        if (month3 < 0) {
+          month3 = 11;
+          year3--;
+        }
+
+        function getDayInMonth(year, month) {
+          return new Date(year, month, 0).getDate();
+        }
+
+        console.log(year3, month3, date3);
+        result.innerHTML = `You are ${year3} years, ${month3} months and ${date3} days old`;
+      }
+    </script>
+  </body>
+</html>
